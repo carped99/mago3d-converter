@@ -1,0 +1,7 @@
+[workspace]
+members = [
+    "citygml",
+    "cli",
+    "daemon",
+    "tiles3d"
+]
