@@ -1,4 +1,5 @@
 use serde::{Deserialize, Serialize};
+
 use crate::types::extension_schema_json::ExtensionSchemaJson;
 use crate::types::extras_schema_json::ExtrasSchemaJson;
 
@@ -16,6 +17,7 @@ pub struct BinaryBodyReference {
     #[serde(rename = "componentType")]
     pub component_type: Option<String>,
 }
+
 #[doc = " An object defining a global boolean property value for all features."]
 pub type GlobalPropertyBoolean = bool;
 
@@ -58,21 +60,8 @@ pub enum FeatureTableEnum {
     PNTS,
 }
 
-pub struct B3dmFeatureTable {
-
-}
-
-struct PointCloudHeader {
-    magic: [u8; 4],
-    version: u32,
-    byteLen: u32,
-    featureTableJSONLength: u32,
-    featureTableBinaryLength: u32,
-    batchTableJSONLength: u32,
-    batchTableBinaryLength: u32,
-}
-
-struct PointCloudFeatureTable {
+/*
+pub struct PointCloudFeatureTable {
     /// A `BinaryBodyReference` object defining the reference to a section of the binary body where the property values are stored.
     /// See the corresponding property semantic in [Semantics](/specification/TileFormats/PointCloud/README.md#semantics).
     #[serde(skip_serializing_if = "Option::is_none")]
@@ -128,7 +117,4 @@ struct PointCloudFeatureTable {
     #[serde(skip_serializing_if = "Option::is_none")]
     pub extras: Option<ExtrasSchemaJson>,
 }
-
-struct PointCloudBody {
-
-}
+*/

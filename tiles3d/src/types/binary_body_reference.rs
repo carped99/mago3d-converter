@@ -7,11 +7,24 @@ use serde::{Deserialize, Serialize};
 pub struct BinaryBodyReference {
     #[doc = " The offset into the buffer in bytes."]
     #[serde(rename = "byteOffset")]
-    pub byte_offset: f64,
+    pub byte_offset: u32,
     #[doc = " The datatype of components in the property."]
     #[serde(rename = "componentType")]
-    pub component_type: String,
-    #[doc = " Specifies if the property is a scalar or vector."]
-    #[serde(rename = "type")]
-    pub type_: String,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub component_type: Option<ComponentType>,
+    // #[doc = " Specifies if the property is a scalar or vector."]
+    // #[serde(rename = "type")]
+    // pub type_: String,
+}
+
+#[derive(Clone, PartialEq, Debug, Deserialize, Serialize)]
+pub enum ComponentType {
+    BYTE,
+    UNSIGNED_BYTE,
+    SHORT,
+    UNSIGNED_SHORT,
+    INT,
+    UNSIGNED_INT,
+    FLOAT,
+    DOUBLE,
 }
